@@ -27,5 +27,4 @@ for person in persons:
 annotated_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 plt.imshow(annotated_img)
-plt.axis("off")
 plt.show()
