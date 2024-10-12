@@ -27,14 +27,14 @@ Our goal is to eventually expand the system to monitor the capacity of UVA buses
 
 ### Machine Learning Components:
 - **YOLOv8**: Open-source object detection algorithm used for bounding box detection to count entries and exits (focusing on the movement of shoes).
-- The results are processed locally and sent to the cloud using HTTP requests or MQTT lightweight protocol.
+- The results are processed locally and sent to the cloud using HTTP requests through a Node.JS API 
 
 ---
 
 ## Cloud Integration
 
 ### Data Transmission:
-- Data (entry/exit counts and timestamp) is sent from the Raspberry Pi to the cloud using an HTTP request.
+- Data (entry/exit counts and timestamp) is sent from the Raspberry Pi to the cloud using an HTTP request through a Node.JS API
 
 ### Backend and Cloud Infrastructure:
 - **Azure Blob Storage**: The processed data is uploaded to Azure Blob Storage for further analysis and storage. Each entry is stored as a JSON object.
@@ -46,8 +46,8 @@ Our goal is to eventually expand the system to monitor the capacity of UVA buses
 ## Front-End Development
 
 ### Web and Mobile Application:
-- **React**: The web application is built using React, providing a simple and intuitive user interface to display building capacity data.
-- **React Native / Expo**: The mobile app will be developed using React Native or Expo, allowing students to access real-time capacity information on their smartphones.
+- **React**: The web application is being built using React, providing a simple and intuitive user interface to display building capacity data.
+- **React Native / Expo**: The mobile app will be developed using React Native, allowing students to access real-time capacity information on their smartphones.
 
 ### Data Display:
 - The front-end will display current capacity, historical trends, and predictions on crowding based on the processed data from Azure and MongoDB.
