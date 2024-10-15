@@ -1,0 +1,11 @@
+/* src/styles/CapacityData.css */
+.capacity-data {
+  text-align: center;
+}
+
+.location-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 20px;
+}

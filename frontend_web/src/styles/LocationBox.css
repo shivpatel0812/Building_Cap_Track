@@ -1,20 +1,59 @@
+/* src/styles/LocationBox.css */
 .location-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border: 1px solid #ddd;
   padding: 20px;
   border-radius: 8px;
-  width: 200px;
-  text-align: center;
+  margin-bottom: 20px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .location-box:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f5f5f5;
 }
 
-.image-placeholder img {
-  width: 100%;
+.location-image img {
+  width: 120px;
   height: auto;
   border-radius: 5px;
+}
+
+.location-details {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #232d4b; /* UVA Blue */
+}
+
+.capacity-graph {
+  width: 30%;
+}
+
+.bar-background {
+  background-color: #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 30px;
+  position: relative;
+}
+
+.bar-fill {
+  background-color: #232d4b; /* UVA Blue */
+  height: 100%;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.bar-fill:hover {
+  background-color: #f84c1e; /* UVA Orange */
 }
