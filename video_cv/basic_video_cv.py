@@ -4,7 +4,7 @@ import cv2
 # load the model
 model = YOLO('yolov8n.pt')
 
-video_path = "/Users/srivatsakrishnamurthy/Documents/dev/capacity-monitor-cv/video_cv/walking_video.mp4"
+video_path = "/home/capacity-monitor/ dev/ML-UVA---Capacity-Tractor/video_cv/new_in_out.mp4"
 cap = cv2.VideoCapture(video_path)
 
 if not cap.isOpened():
@@ -15,7 +15,6 @@ while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
         break
-
     results = model(frame)
 
     # filter people

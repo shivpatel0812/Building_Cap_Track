@@ -4,7 +4,7 @@ import cv2
 # load model
 model = YOLO('yolov8n.pt')
 
-video_path = "/Users/shivpatel/ML-UVA---Capacity-Tractor/in_out_logic/new_in_out.mp4"
+video_path = "/home/capacity-monitor/ dev/ML-UVA---Capacity-Tractor/video_cv/new_in_out.mp4"
 cap = cv2.VideoCapture(video_path)
 
 # counters

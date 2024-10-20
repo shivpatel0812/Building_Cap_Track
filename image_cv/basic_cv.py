@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 # load the pretrained model
 model = YOLO('yolov8n.pt') 
 
-image_path = "/Users/srivatsakrishnamurthy/Documents/dev/capacity-monitor-cv/walking_two.jpg"
+image_path = "/home/capacity-monitor/ dev/ML-UVA---Capacity-Tractor/image_cv/walking_two.jpg"
 img = cv2.imread(image_path)
 
 # preform object detcttion
