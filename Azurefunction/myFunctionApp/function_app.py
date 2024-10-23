@@ -98,3 +98,18 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     
     logging.info(f"Updated capacity: {current_capacity}")
     return func.HttpResponse(f"Blob content read successfully. Current capacity: {current_capacity}", status_code=200)
+
+def test_blob_content():
+    container_name = "testcapacity"  
+    blob_name = "capacityblob" 
+
+    logging.info('Testing blob content retrieval...')
+    
+
+    blob_content = get_blob_content(container_name, blob_name)
+    
+    if blob_content:
+        print("Blob content successfully retrieved:")
+        print(blob_content)
+    else:
+        print("Failed to retrieve blob content.")
