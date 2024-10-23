@@ -6,6 +6,7 @@ from pymongo import MongoClient
 from datetime import datetime
 
 app = func.FunctionApp()
+
 def get_blob_service_client():
     connect_str = os.getenv('Connection_blob')  
     return BlobServiceClient.from_connection_string(connect_str)
@@ -33,29 +34,22 @@ def update_capacity(blob_content):
         logging.error(f"Error updating capacity: {str(e)}")
 
 def get_mongo_client():
-
     mongo_uri = os.getenv('MONGO_DB_CONNECTION_STRING')  
     if not mongo_uri:
         raise ValueError("MONGO_DB_CONNECTION_STRING environment variable not set")
     client = MongoClient(mongo_uri)
-    
-
     try:
-  
         client.admin.command('ismaster')
         print("MongoDB connection successful")
     except Exception as e:
         print(f"MongoDB connection failed: {e}")
         raise
-
     return client
-
 
 def store_to_mongodb(result):
     try:
         client = get_mongo_client()
         db = client['capacity_db']  
-
         capacity_updates_collection = db['capacity_updates']  
         update_record = {
             "timestamp": datetime.utcnow(),
@@ -79,8 +73,6 @@ def store_to_mongodb(result):
     except Exception as e:
         logging.error(f"Error inserting into MongoDB: {str(e)}")
 
-    
-
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
@@ -91,21 +83,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     if not blob_content:
         return func.HttpResponse("Error reading blob content", status_code=500)
 
-    result = update_capacity(blob_content)
-    
-    if result:
-        store_to_mongodb(result)
-    
-    logging.info(f"Updated capacity: {current_capacity}")
-    return func.HttpResponse(f"Blob content read successfully. Current capacity: {current_capacity}", status_code=200)
+    logging.info(f"Blob content successfully retrieved: {blob_content}")
+    return func.HttpResponse(f"Blob content read successfully:\n{blob_content}", status_code=200)
 
 def test_blob_content():
     container_name = "testcapacity"  
     blob_name = "capacityblob" 
 
     logging.info('Testing blob content retrieval...')
-    
-
     blob_content = get_blob_content(container_name, blob_name)
     
     if blob_content:
