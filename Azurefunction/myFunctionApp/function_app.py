@@ -7,7 +7,7 @@ from datetime import datetime
 
 app = func.FunctionApp()
 def get_blob_service_client():
-    connect_str = os.getenv('AzureWebJobsStorage')  
+    connect_str = os.getenv('Connection_blob')  
     return BlobServiceClient.from_connection_string(connect_str)
 
 def get_blob_content(container_name, blob_name):
@@ -20,7 +20,7 @@ def get_blob_content(container_name, blob_name):
     except Exception as e:
         logging.error(f"Error reading blob: {str(e)}")
         return None
-    
+
 def update_capacity(blob_content):
     global current_capacity
     try:
@@ -33,9 +33,23 @@ def update_capacity(blob_content):
         logging.error(f"Error updating capacity: {str(e)}")
 
 def get_mongo_client():
+
     mongo_uri = os.getenv('MONGO_DB_CONNECTION_STRING')  
+    if not mongo_uri:
+        raise ValueError("MONGO_DB_CONNECTION_STRING environment variable not set")
     client = MongoClient(mongo_uri)
+    
+
+    try:
+  
+        client.admin.command('ismaster')
+        print("MongoDB connection successful")
+    except Exception as e:
+        print(f"MongoDB connection failed: {e}")
+        raise
+
     return client
+
 
 def store_to_mongodb(result):
     try:
@@ -70,7 +84,7 @@ def store_to_mongodb(result):
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
-    container_name = "your-container-name"  
+    container_name = "testcapacity"  
     blob_name = "capacityblob"  
     blob_content = get_blob_content(container_name, blob_name)
 

@@ -5,18 +5,15 @@ import datetime
 import requests
 from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
 
-# Azure Blob Storage configuration (hard-coded)
+
 AZURE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=capacityblob;AccountKey=FUMSzy2uqGjpWOcX+rixa0FA1UCdZjOZcSmXecSS/UxjnNavvaY/9XFy7q7eUXRcErvuGoHh+SOK+AStUU0dIg==;EndpointSuffix=core.windows.net"
 
 AZURE_CONTAINER_NAME = "testcapacity"
 BLOB_NAME = "capacityblob"
-
-# Function to check if Azure Blob Storage connection is working
 def check_azure_connection():
     try:
         blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
         container_client = blob_service_client.get_container_client(AZURE_CONTAINER_NAME)
-        # Try listing blobs to confirm the connection
         blobs = list(container_client.list_blobs())
         print("Connection to Azure Blob Storage: Successful")
         return True
@@ -24,40 +21,40 @@ def check_azure_connection():
         print(f"Error connecting to Azure Blob Storage: {e}")
         return False
 
-# Check Azure connection
+
 if check_azure_connection():
     print("yes")
 
-# Load model
+
 model = YOLO('yolov8n.pt')
 
 video_path = "/Users/shivpatel/ML-UVA---Capacity-Tractor/in_out_logic/new_in_out.mp4"
 cap = cv2.VideoCapture(video_path)
 
-# Counters
+
 enter_count = 0
 exit_count = 0
 
-# Store previous positions for people to track
+
 previous_positions = {}
 
-# Define door region
+
 frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-door_line_x = int(frame_width * 0.5)  # Start at 50% of frame width
+door_line_x = int(frame_width * 0.5)  
 
-# Define box dimensions
-box_width = int(frame_width * 0.2)  # 20% of frame width
-box_height = int(frame_height * 0.8)  # 80% of frame height
+
+box_width = int(frame_width * 0.2)  
+box_height = int(frame_height * 0.8) 
 box_x = door_line_x - box_width // 2
-box_y = (frame_height - box_height) // 2  # Center the box vertically
+box_y = (frame_height - box_height) // 2  
 
 def adjust_door_line(value):
     global door_line_x, box_x
     door_line_x = value
     box_x = door_line_x - box_width // 2
 
-# Create a window and trackbar
+
 cv2.namedWindow("Video Counter")
 cv2.createTrackbar("Door Line", "Video Counter", door_line_x, frame_width, adjust_door_line)
 
@@ -98,10 +95,10 @@ while cap.isOpened():
                     enter_count += 1
                     print(f"Frame {frame_count}: Person {person_id} entered. Count: {enter_count}")
     
-    # Draw the door line (only within the box)
+ 
     cv2.line(frame, (door_line_x, box_y), (door_line_x, box_y + box_height), (0, 255, 255), 2)
 
-    # Draw the box
+
     cv2.rectangle(frame, (box_x, box_y), (box_x + box_width, box_y + box_height), (255, 0, 0), 2)
         
     cv2.putText(frame, f'Enter: {enter_count}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
@@ -118,21 +115,18 @@ while cap.isOpened():
 cap.release()
 cv2.destroyAllWindows()
 
-# Prepare the data to be sent to Azure Blob Storage
-result_data = [{"in": enter_count, "out": exit_count}]  # Simple list with enter/exit counts
 
-# Convert list to JSON format
+result_data = [{"in": enter_count, "out": exit_count}]  
+
 result_json = json.dumps(result_data)
 
-# Upload the JSON result to Azure Blob Storage
+
 try:
-    # Create the BlobServiceClient object
+
     blob_service_client = BlobServiceClient.from_connection_string(AZURE_CONNECTION_STRING)
 
-    # Create a blob client using the container name and the blob name
+ 
     blob_client = blob_service_client.get_blob_client(container=AZURE_CONTAINER_NAME, blob=BLOB_NAME)
-
-    # Upload the JSON data
     blob_client.upload_blob(result_json, overwrite=True)
     print(f"Data successfully uploaded to Azure Blob Storage: {BLOB_NAME}")
     print(result_json)

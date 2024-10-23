@@ -1,4 +1,3 @@
-// src/Components/LocationBox.js
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/LocationBox.css";

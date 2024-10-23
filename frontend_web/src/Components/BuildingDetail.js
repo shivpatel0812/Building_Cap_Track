@@ -1,9 +1,8 @@
-// src/Components/BuildingDetail.js
 import React from "react";
 import { useParams } from "react-router-dom";
 
 function BuildingDetail() {
-  const { name } = useParams(); // Get the building name from the URL params
+  const { name } = useParams();
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
