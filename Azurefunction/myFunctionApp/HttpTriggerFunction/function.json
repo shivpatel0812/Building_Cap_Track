@@ -1,16 +1,12 @@
 {
-  "bindings": [
+"bindings": [
     {
-      "authLevel": "function",
-      "type": "httpTrigger",
+      "type": "blobTrigger",
       "direction": "in",
-      "name": "req",
-      "methods": ["get", "post"]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
+      "name": "inputBlob",
+      "path": "capacityblob/{blobName}",
+      "connection": "AzureWebJobsStorage"
     }
   ]
-}
+ }
+ 
