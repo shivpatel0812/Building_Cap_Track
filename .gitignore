@@ -1,4 +1,5 @@
 .venv
+venv
 /Automated_Data_Pipeline
 /Azure_logic
 /Azure_Node
