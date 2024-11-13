@@ -3,4 +3,13 @@
 /in_out_logic/in_out_video.mp4
 /video_cv/*.mp4
 /in_out_logic/*.mp4
-.venv/
+/image_cv/*.jpeg
+/frontend_web
+/Frontend-Mobile
+/Azure_logic
+/Azure_Node
+/Azure_python
+/Automated_Data_Pipeline
+/.venv
+/.venv-rasp
+
