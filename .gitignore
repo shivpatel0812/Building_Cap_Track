@@ -1,14 +1,4 @@
 .venv
 venv
-/Automated_Data_Pipeline
-/Azure_logic
-/Azure_Node
-/Azure_python
-/Computer-Vision
-/frontend_web
-/Frontend-Mobile
-/image_cv
-/in_out_logic
 venv-rasp
-/video_cv
 . 
