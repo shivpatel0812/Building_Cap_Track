@@ -11,5 +11,7 @@
 /Azure_python
 /Automated_Data_Pipeline
 /.venv
+/./venv
 /.venv-rasp
+/.
 
