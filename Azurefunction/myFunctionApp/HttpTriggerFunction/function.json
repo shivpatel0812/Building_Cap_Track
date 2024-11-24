@@ -1,5 +1,5 @@
 {
-"bindings": [
+  "bindings": [
     {
       "type": "blobTrigger",
       "direction": "in",
@@ -8,5 +8,4 @@
       "connection": "AzureWebJobsStorage"
     }
   ]
- }
- 
+}

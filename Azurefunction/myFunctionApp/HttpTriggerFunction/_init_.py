@@ -77,5 +77,3 @@ def main(inputBlob: func.InputStream) -> None:
    blob_content = inputBlob.read().decode('utf-8')
    logging.info(f"Blob content: {blob_content}")
    insert_to_postgresql(blob_content)
-
-
