@@ -7,13 +7,13 @@ mobile repository: https://github.com/shivpatel0812/capacitymobilefrontend/blob/
 ### Problem Statement:
 UVA students currently lack real-time information on the capacity of popular locations on campus, including Clemons Library, Shannon Library, Mem Gym, and AFC Gym. This makes it challenging for students to effectively plan their schedules and access facilities without overcrowding. Our proposed solution is to develop a **computer vision-based camera system** integrated with a **web and mobile application**. This system will allow students to monitor the capacity of different UVA buildings in real time, helping them to manage their visits and schedules better.
 
-The system will detect when a student enters or exits a building and then process this data on a local device (Raspberry Pi 5). The processed data will be sent to **Azure Blob Storage** for cloud processing, where it will be cleaned and analyzed before being displayed in a web and mobile application, providing real-time capacity statistics.
+The system will detect when a student enters or exits a building and then process this data on a local device (Raspberry Pi 5). The processed data will be sent to **AWS S3** for cloud processing, where it will be cleaned and analyzed before being displayed in a web and mobile application, providing real-time capacity statistics.
 
 Our goal is to eventually expand the system to monitor the capacity of UVA buses, helping students manage their commutes efficiently.
 
 ---
 
-## Current Design
+## ent Design
 
 ### Hardware and Machine Learning Pipeline
 
@@ -39,8 +39,8 @@ Our goal is to eventually expand the system to monitor the capacity of UVA buses
 - Data (entry/exit counts and timestamp) is sent from the Raspberry Pi to the cloud using an HTTP request through a Node.JS API
 
 ### Backend and Cloud Infrastructure:
-- **Azure Blob Storage**: The processed data is uploaded to Azure Blob Storage for further analysis and storage. Each entry is stored as a JSON object.
-- **Azure Functions**: Used to clean and update real-time data. These functions trigger automatically when new data is uploaded to Azure Blob, allowing for real-time processing without the need for a constantly running server.
+- **AWS S3 Storage**: The processed data is uploaded to a S3 bucket for further analysis and storage. Each entry is stored as a JSON object.
+- **AWS Lambda Function**: Used to clean and update real-time data. These functions trigger automatically when new data is uploaded to AWS S3, allowing for real-time processing without the need for a constantly running server.
 - **MongoDB**: Acts as the central database for storing processed data. MongoDB allows for efficient querying and scaling as the dataset grows.
 
 ---
@@ -59,8 +59,8 @@ Our goal is to eventually expand the system to monitor the capacity of UVA buses
 ## Key System Components
 - **Raspberry Pi 5**: Collects video data from attached cameras and performs initial object detection.
 - **YOLOv8 Model**: Detects people entering and exiting the buildings.
-- **Azure Blob Storage**: Stores processed data for further cloud-based processing.
-- **Azure Functions**: Automatically cleans and processes data when it is uploaded to the cloud.
+- **AWS S3**: Stores processed data for further cloud-based processing.
+- **AWS Lambdas**: Automatically cleans and processes data when it is uploaded to the cloud.
 - **MongoDB**: Stores and manages the results for efficient access by the front-end applications.
 
 ---
