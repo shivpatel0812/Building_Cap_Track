@@ -1,5 +1,5 @@
 # UVA Building Capacity Tracker
-mobile repository: https://github.com/shivpatel0812/capacitymobilefrontend/blob/main/src/Components/Shannon.js
+mobile repository: https://github.com/shivpatel0812/capacitymobilefrontend/tree/main
 
 
 ## Project Overview
@@ -52,7 +52,7 @@ Our goal is to eventually expand the system to monitor the capacity of UVA buses
 - **React Native / Expo**: The mobile app will be developed using React Native, allowing students to access real-time capacity information on their smartphones.
 
 ### Data Display:
-- The front-end will display current capacity, historical trends, and predictions on crowding based on the processed data from Azure and MongoDB.
+- The front-end will display current capacity, historical trends, and predictions on crowding based on the processed data from AWS and MongoDB.
 
 ---
 
