@@ -3,7 +3,7 @@ ReactJS web/node.js backend repository: https://github.com/shivpatel0812/reactfr
 
 Expo React Native mobile repository: https://github.com/shivpatel0812/capacitymobilefrontend/tree/main
 
-capacity trackor: https://github.com/shivpatel0812/Capacityalgorithm/tree/main
+Capacity Prediction Algorithm: https://github.com/shivpatel0812/Capacityalgorithm/tree/main
 
 
 ## Project Overview
