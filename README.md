@@ -1,4 +1,6 @@
 # UVA Building Capacity Tracker
+mobile repository: https://github.com/shivpatel0812/capacitymobilefrontend/blob/main/src/Components/Shannon.js
+
 
 ## Project Overview
 
