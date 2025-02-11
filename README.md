@@ -53,6 +53,7 @@ Our goal is to eventually expand the system to monitor the capacity of UVA buses
 - **AWS S3 Storage**: The processed data is uploaded to a S3 bucket for further analysis and storage. Each entry is stored as a JSON object.
 - **AWS Lambda Function**: Used to clean and update real-time data. These functions trigger automatically when new data is uploaded to AWS S3, allowing for real-time processing without the need for a constantly running server.
 - **MongoDB**: Acts as the central database for storing processed data. MongoDB allows for efficient querying and scaling as the dataset grows.
+- ****API Gateway + Lambda**: Lambhda constantly fetches updated data from Mongodb and APIgateway connects to frontend to send data
 
 <p align="center">
   <img src="./image_cv/BD0A8807-D247-4ABB-83D8-83662113CAE7.png" alt="YOLOv8 Detection 1" width="800" height = "400"/>
