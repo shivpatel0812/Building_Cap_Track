@@ -55,7 +55,7 @@ Our goal is to eventually expand the system to monitor the capacity of UVA buses
 - **MongoDB**: Acts as the central database for storing processed data. MongoDB allows for efficient querying and scaling as the dataset grows.
 
 <p align="center">
-  <img src="./image_cv/BD0A8807-D247-4ABB-83D8-83662113CAE7.png" alt="YOLOv8 Detection 1" width="400" height = "600"/>
+  <img src="./image_cv/BD0A8807-D247-4ABB-83D8-83662113CAE7.png" alt="YOLOv8 Detection 1" width="800" height = "400"/>
 </p>
 ---
 
