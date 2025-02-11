@@ -29,10 +29,11 @@ Our goal is to eventually expand the system to monitor the capacity of UVA buses
 - **WiFi Dongle**: Enables network communication to send the processed data from the Raspberry Pi to the cloud.
 - **Power Source**: A USB-C power source to ensure continuous operation of the Raspberry Pi.
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+<p align="center">
   <img src="./image_cv/547A090E-6735-4A17-A754-68738B99A423.png" alt="YOLOv8 Detection 1" width="400"/>
   <img src="./image_cv/992EE42C-E355-498A-9266-97518807D380.png" alt="YOLOv8 Detection 2" width="400"/>
-</div>
+</p>
+
 
 
 ---
