@@ -69,8 +69,8 @@ Our goal is to eventually expand the system to monitor the capacity of UVA buses
 ### Data Display:
 - The front-end will display current capacity, historical trends, and predictions on crowding based on the processed data from AWS and MongoDB.
 <p align="center">
-  <img src="./image_cv/64755EA0-2FB3-4D55-81AE-DF8EBDBC7B65.png" alt="YOLOv8 Detection 1" width="350" height = "600"/>
-  <img src="./image_cv/971EF3EA-6EE7-431A-9699-210D045E46B3.png" alt="YOLOv8 Detection 2" width="350" height = "600"/>
+  <img src="./image_cv/64755EA0-2FB3-4D55-81AE-DF8EBDBC7B65.png" alt="YOLOv8 Detection 1" width="350" height = "700"/>
+  <img src="./image_cv/971EF3EA-6EE7-431A-9699-210D045E46B3.png" alt="YOLOv8 Detection 2" width="350" height = "700"/>
 </p>
 ---
 
