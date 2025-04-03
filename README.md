@@ -32,6 +32,8 @@ Our goal is to eventually expand the system to monitor the capacity of UVA buses
 <p align="center">
   <img src="./image_cv/547A090E-6735-4A17-A754-68738B99A423.png" alt="YOLOv8 Detection 1" width="400" height = "600"/>
   <img src="./image_cv/D6F5C357-DC5A-4880-AA92-F61EEEE5AD50.png" alt="YOLOv8 Detection 2" width="400" height = "600"/>
+  <img src="./image_cv/685C3432-8DB4-4836-B452-04166D7E7A51.heic" alt="YOLOv8 Detection 2" width="400" height = "600"/>
+  <img src="./image_cv/D44A1E81-FF2F-4C84-877E-C6F8A160630B.heic" alt="YOLOv8 Detection 2" width="400" height = "600"/>
 </p>
 
 
